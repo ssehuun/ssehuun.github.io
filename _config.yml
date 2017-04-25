@@ -7,11 +7,11 @@ gems:
 permalink:           pretty
 
 # Setup
-url:                 https://ssehuun.github.io
+url:                 'https://ssehuun.github.io'
 
 # Set to '' in case of hosting on GitHub pages,
 # i.e. `http://<username>.github.io`
-baseurl:             /hydejack
+baseurl:             'https://ssehuun.github.io'
 
 title:               Sehun's Blog
 
@@ -21,7 +21,7 @@ paginate_path:       '/page-:num/'
 
 # Markdown enabled, however don't use more than one paragraph (enforced by `>`)
 description:         >
-  A pretentious two-column [Jekyll](http://jekyllrb.com/) theme, stolen by [`@qwtel`{:style="background: rgba(255, 255, 255, 0.15)"}](https://twitter.com/qwtel)
+  A  two- [Jekyll](http://jekyllrb.com/) theme, stolen by [`@qwtel`{:style="background: rgba(255, 255, 255, 0.15)"}](https://twitter.com/qwtel)
   from [Hyde](http://hyde.getpoole.com).
   You could say it was.. [hydejacked](http://media3.giphy.com/media/makedRIckZBW8/giphy.gif).
 
@@ -29,7 +29,7 @@ description:         >
 sidebar_tags:        [jekyll, hyde]
 
 # Fallback image and color if not overwritten for tag or post
-image:               /hydejack/public/img/nap.jpg
+image:               https://github.com/ssehuun/ssehuun.github.io/public/img/nap.jpg
 color:               '#A85641'
 
 # Fonts
@@ -39,18 +39,15 @@ load_google_fonts:   'Roboto+Slab:700|PT+Serif:400,400italic,700,700italic'
 
 # About yourself
 author:
-  name:              'Florian Klampfer'
+  name:              'Sehun Jung'
 
   # This photo will be used in the about section
-  photo:             http://qwtel.com/public/img/flo.jpg
-  photo2x:           http://qwtel.com/public/img/flo@2x.jpg
+  photo:             https://github.com/ssehuun/ssehuun.github.io/public/img/me.jpg
+  photo2x:           https://github.com/ssehuun/ssehuun.github.io/public/img/me.jpg
 
   # Markdown enabled, can use multiple paragraphs (enabled by `|`)
   about:             |
-    Hi, I'm Florian or [`@qwtel`](https://www.twitter.com/qwtel), which isn't an acronym,
-    I just [wanted a short username](http://qwtel.com/how-to-find-a-short-username) and that one happened to be available.
-
-    Read my thoughts on [#software](http://qwtel.com/tag/software) and [#cryptoeconomics](http://qwtel.com/tag/cryptoeconomics).
+    Hi, I'm Sehun.
 
   # Social media icons in sidebar
   # Comment/uncommet to show/hide
