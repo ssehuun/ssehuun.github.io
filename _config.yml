@@ -15,6 +15,7 @@ locale: "ko_KR"
 title: "정세훈 | ML Engineer"
 description: "Python 기반 백엔드와 AI 플랫폼 개발자"
 url: "https://ssehuun.github.io"
+baseurl: ""
 
 # Personal info
 name: 정세훈 (Sehun Jung)
