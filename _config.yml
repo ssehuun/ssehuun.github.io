@@ -1,13 +1,11 @@
 repository: ssehuun/ssehuun.github.io
 
-remote_theme: sproogen/modern-resume-theme
 
 sass:
   sass_dir: _sass
   style: compressed
 
 plugins:
-  - jekyll-remote-theme
   - jekyll-seo-tag
 
 # Site Settings
