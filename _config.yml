@@ -1,6 +1,6 @@
 repository: ssehuun/ssehuun.github.io
 
-remote_theme: sproogen/resume-theme
+remote_theme: sproogen/modern-resume-theme
 
 sass:
   sass_dir: _sass
