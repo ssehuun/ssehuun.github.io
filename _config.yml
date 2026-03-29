@@ -1,6 +1,5 @@
 repository: ssehuun/ssehuun.github.io
 
-
 sass:
   sass_dir: _sass
   style: compressed
@@ -30,63 +29,90 @@ about_content: |
 
   Docker, Kubernetes, Helm 기반 배포 구조와 서로 다른 실행 환경의 차이를 분석하며, 세션·권한 처리, 저장소 추상화, 실시간 이벤트 전달, 시스템 책임 분리 관점에서 구조를 정리해 왔습니다.
 
+  기술을 단순히 구현하는 것에 그치지 않고, 복잡한 AI 서비스를 이해하기 쉬운 구조로 만들고 실제 운영 가능한 플랫폼으로 연결하는 일을 중요하게 생각합니다.
+
 content:
   - title: 경력
     layout: list
     content:
       - layout: left
         title: LG전자
-        sub_title: ML Engineer / AX플랫폼팀, MLOps솔루션개발팀
+        sub_title: AX플랫폼팀 / MLOps솔루션개발팀 · ML Engineer
         caption: 2023.12 ~ 현재
         description: |
-          **전사 AI플랫폼 LGenie 개발 (2026.01 ~ present)**
-          - 운영 중인 LGenie 플랫폼의 Agentic v4 API 구조 재설계
+          **전사 AI플랫폼 LGenie Agentic v4 개발 (2026.01 ~ present)**
+
+          LLM 호출 집합 구조였던 기존 플랫폼을 상태 기반 Agentic 실행 런타임으로 고도화.
+
+          *주요 역할*
           - 기존 질의응답형 API를 Agent API 중심 구조로 리팩토링
-          - 의도 분석 → task planning → execution → response aggregation 흐름으로 실행 구조 정리
-          - Chat Session, orchestrator state, task execution state 기반 멀티스텝 요청 처리 구조 설계
-          - Agent, Unit, Tool, Business Agent, Orchestrator, Registry의 역할 경계 재정의 및 개발
-          - Tool/MCP 및 Business Agent 구조 표준화 (임직원 검색, 담당자 조회, 업무지식 검색, 개인지식 검색, 메일 보조, Navigator)
-          - Agentic v4 런타임 구조 확립으로 API 추가 시 개발 시간 단축
-          - 신규 비즈니스 에이전트 개발 공수 기존 대비 30% 절감
-          - 대용량 파일 기반 지식 운영 병목 현상 해결, 전체 서비스 펜딩 현상 제거
+          - 의도 분석 → Task Planning → Execution → Response Aggregation 흐름으로 실행 구조 재설계
+          - Chat Session / Orchestrator State / Task Execution State 기반 멀티스텝 요청 처리 구조 설계
+          - Agent, Unit, Tool, Business Agent, Orchestrator, Registry 역할 경계를 코드 기준으로 재정의 및 개발
+          - FastAPI 내부 MCP 서버를 Scale-out 가능한 독립 구조로 분리
+          - Business Agent 책임 구분 설계: 임직원 검색, 담당자 조회, 업무지식 검색, 개인지식 검색, 메일 보조, Navigator
+          - 대용량 파일 기반 업무지식 동기식 업로드를 비동기 방식으로 전환, 전체 서비스 펜딩 현상 제거
+
+          *성과*
+          - 역할 경계 명확화로 신규 비즈니스 에이전트 개발 공수 기존 대비 **30% 절감**
+          - Tool Decorator → Tool Registry → ToolSet Registry → Tool Service → MCP Exposure 표준 파이프라인 확립
+          - 6종 이상의 유스케이스를 동일 플랫폼 내에서 안정적으로 수용
+          - 타 현업부서의 MCP 서버 독립 설치·운용 가능한 구조로 확장성 확보
+
+          *Tech Stack:* Python, FastAPI, uvicorn, Redis, PostgreSQL, MySQL, SQLAlchemy ORM
+
+          ---
 
           **LangGraph 기반 사내 플랫폼 Documentor 개발 (2025.05 ~ 2025.09)**
-          - 로컬/사내 협업 툴(Collab) 문서 기반의 지식 추출 및 질의응답 시스템 백엔드 구축
-          - SuperAgent 기반의 Task 오케스트레이션 엔진 개발
-          - SSE 방식 스트리밍 응답 체계 구축으로 사용자 체감 성능 극대화
-          - 타 본부 및 사내 기술 세미나에서 높은 활용 가치 인정, 신규 비즈니스 수요 확보
 
-          **Tech Stack:** Python, FastAPI, uvicorn, Redis, PostgreSQL, MySQL, SQLAlchemy, Milvus, LangChain, LangGraph
+          로컬/사내 협업 툴(Collab) 문서 기반 지식 추출 및 질의응답 시스템.
+
+          *주요 역할*
+          - 멀티 유저 환경에 최적화된 LLM 서비스 아키텍처 및 RESTful API 설계
+          - SuperAgent 기반 Task 오케스트레이션 엔진 개발
+          - 사용자 요청 → 작업 큐 적재 → LLM/Vector DB 연동 → SSE 응답 전 과정 파이프라인 제어
+          - LangChain, LangGraph 외부 라이브러리 의존성 관리 및 추상화 계층(Abstraction Layer) 구현
+          - 개별 유저별 세션 관리와 지식 베이스 격리 구조로 멀티테넌시 보안 구현
+
+          *성과*
+          - 비즈니스 로직과 인프라 로직 엄격히 분리(Decoupling)하여 병렬 개발 환경 조성
+          - 타 본부 및 사내 기술 세미나에서 높은 활용 가치 인정, **신규 비즈니스 수요 확보**
+          - 외부 연구 부서 및 협력 기관으로부터 기술 협업 및 도입 요청 획득, 플랫폼 시장성 검증
+
+          *Tech Stack:* Python, FastAPI, uvicorn, Redis, PostgreSQL, Milvus, LangChain, LangGraph
 
       - layout: left
         title: LG전자
-        sub_title: BT/Wifi Unit 팀
+        sub_title: BT/Wifi Unit 팀 · Software Engineer
         caption: 2017.12 ~ 2023.11
         description: |
-          BT/Wifi 관련 소프트웨어 개발 및 유지보수
+          BT/Wifi 관련 소프트웨어 개발 및 유지보수 (6년)
 
       - layout: left
         title: LIK
         sub_title: 웹개발 팀
         caption: 2016.02 ~ 2016.10
         description: |
-          웹 개발
+          웹 서비스 개발
 
   - title: 기술 스택
     layout: list
     content:
       - layout: left
-        title: Backend
-        description: Python, FastAPI, uvicorn, Redis, PostgreSQL, MySQL, SQLAlchemy ORM
+        title: Language & Framework
+        description: Python, FastAPI, uvicorn
       - layout: left
         title: AI / ML
-        description: LangChain, LangGraph, MCP, Vector DB (Milvus), LLM Orchestration
+        description: LangChain, LangGraph, MCP (Model Context Protocol), Vector DB (Milvus), LLM Orchestration, Agentic System Design
+      - layout: left
+        title: Database & Cache
+        description: PostgreSQL, MySQL, SQLAlchemy ORM, Redis, Milvus
       - layout: left
         title: Infrastructure
         description: Docker, Kubernetes, Helm
       - layout: left
         title: Architecture
-        description: Agentic 시스템 설계, SSE 스트리밍, 비동기 처리, 멀티테넌시
+        description: Agentic Runtime, SSE Streaming, 비동기 처리, Multi-tenancy, Task Orchestration, Agent/Tool/MCP 표준화
 
   - title: 학력
     layout: list
