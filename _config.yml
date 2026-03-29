@@ -1,5 +1,7 @@
 repository: ssehuun/ssehuun.github.io
 
+version: 2
+
 sass:
   sass_dir: _sass
   style: compressed
@@ -9,7 +11,7 @@ plugins:
 
 # Site Settings
 locale: "ko_KR"
-title: "정세훈 | ML Engineer"
+title: "ML Engineer"
 description: "Python 기반 백엔드와 AI 플랫폼 개발자"
 url: "https://ssehuun.github.io"
 baseurl: ""
